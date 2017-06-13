@@ -83,7 +83,8 @@ class Tabs
             'id'       => false,
             'content'  => '',
             'callback' => false,
-            'url'      => false
+            'url'      => false,
+            'icon'     => '',
         ];
         $settings     = wp_parse_args( $settings, $defaults );
 
@@ -208,6 +209,11 @@ class Tabs
                         ?>
                         <li id="<?php echo esc_attr( $link_id ); ?>"<?php echo $class; ?>>
                             <a href="<?php echo esc_url( "$panel_id" ); ?>">
+
+                                <?php if ( ! empty( $tab['icon'] ) ) : ?>
+                                    <i class="<?php echo esc_attr( $tab['icon'] ) ?>"></i>
+                                <?php endif;?>
+
                                 <?php echo esc_html( $tab['title'] ); ?>
                             </a>
                         </li>
@@ -282,6 +288,11 @@ class Tabs
                                 ?>
                                 <li id="<?php echo esc_attr( $link_id ); ?>"<?php echo $class; ?>>
                                     <a href="<?php echo esc_url( "$panel_id" ); ?>">
+
+                                        <?php if ( ! empty( $tab['icon'] ) ) : ?>
+                                            <i class="<?php echo esc_attr( $tab['icon'] ) ?>"></i>
+                                        <?php endif;?>
+
                                         <?php echo esc_html( $tab['title'] ); ?>
                                     </a>
                                 </li>
